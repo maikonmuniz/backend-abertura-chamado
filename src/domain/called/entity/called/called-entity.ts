@@ -3,7 +3,7 @@ export class CalledEntity {
 
     constructor(private readonly props: typeCalled) {
         this.props = props
-        this.props.status = 'open'
+        this.props['status'] = 'open'
     }
 
     getCalled() {
@@ -12,12 +12,14 @@ export class CalledEntity {
         }
     }
 
+    toJson () {
+        return this.props
+    }
 }
 
 type typeCalled = {
-    responsible: string
-    createAt: Date
+    responsibleId: string
     typeCaled: string
     description: string
-    status: string
+    status?: string
 }
